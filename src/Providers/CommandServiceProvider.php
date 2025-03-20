@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Gii\ModuleAgent\Providers;
+namespace Hanafalah\ModuleAgent\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Gii\ModuleAgent\Commands as Commands;
+use Hanafalah\ModuleAgent\Commands as Commands;
 
 class CommandServiceProvider extends ServiceProvider
 {
@@ -14,7 +14,8 @@ class CommandServiceProvider extends ServiceProvider
     ];
 
 
-    public function register(){
+    public function register()
+    {
         $this->commands($this->commands);
     }
     /**

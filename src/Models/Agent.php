@@ -1,29 +1,33 @@
 <?php
 
-namespace Gii\ModuleAgent\Models;
+namespace Hanafalah\ModuleAgent\Models;
 
-use Gii\ModuleAgent\Resources\Agent\ShowAgent;
-use Gii\ModuleAgent\Resources\Agent\ViewAgent;
-use Gii\ModuleOrganization\Models\Organization; 
+use Hanafalah\ModuleAgent\Resources\Agent\ShowAgent;
+use Hanafalah\ModuleAgent\Resources\Agent\ViewAgent;
+use Hanafalah\ModuleOrganization\Models\Organization;
 
-class Agent extends Organization {
+class Agent extends Organization
+{
     protected $table = 'organizations';
 
-    protected static function booted(): void{
+    protected static function booted(): void
+    {
         parent::booted();
-        static::addGlobalScope('agent',function($query){
+        static::addGlobalScope('agent', function ($query) {
             $query->whereRaw('UPPER(flag) = "AGENT"');
         });
-        static::creating(function($query){
+        static::creating(function ($query) {
             if (!isset($query->flag)) $query->flag = 'AGENT';
         });
     }
 
-    public function toShowApi(){
+    public function toShowApi()
+    {
         return new ShowAgent($this);
     }
 
-    public function toViewApi(){
+    public function toViewApi()
+    {
         return new ViewAgent($this);
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Gii\ModuleAgent;
+namespace Hanafalah\ModuleAgent;
 
-use Gii\ModuleAgent\{
+use Hanafalah\ModuleAgent\{
     Models\Agent,
     Schemas\Agent as SchemaAgent,
 };
-use Zahzah\LaravelSupport\Providers\BaseServiceProvider;
+use Hanafalah\LaravelSupport\Providers\BaseServiceProvider;
 
 class ModuleAgentServiceProvider extends BaseServiceProvider
 {
@@ -18,23 +18,25 @@ class ModuleAgentServiceProvider extends BaseServiceProvider
     public function register()
     {
         $this->registerMainClass(ModuleAgent::class)
-             ->registerCommandService(Providers\CommandServiceProvider::class)
-             ->registers([
+            ->registerCommandService(Providers\CommandServiceProvider::class)
+            ->registers([
                 '*',
-                'Services'  => function(){
+                'Services'  => function () {
                     $this->binds([
                         Contracts\ModuleAgent::class  => Agent::class,
                         Contracts\Agent::class        => SchemaAgent::class,
                     ]);
                 },
-             ]);
+            ]);
     }
 
-    protected function dir(): string{
-        return __DIR__.'/';
+    protected function dir(): string
+    {
+        return __DIR__ . '/';
     }
 
-    protected function migrationPath(string $path = ''): string{
+    protected function migrationPath(string $path = ''): string
+    {
         return database_path($path);
     }
 }

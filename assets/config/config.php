@@ -1,6 +1,6 @@
 <?php
 
-use Gii\ModuleAgent\{
+use Hanafalah\ModuleAgent\{
     Models as ModuleAgent,
     Contracts
 };

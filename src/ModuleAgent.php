@@ -1,9 +1,7 @@
 <?php
 
-namespace Gii\ModuleAgent;
+namespace Hanafalah\ModuleAgent;
 
-use Zahzah\LaravelSupport\Supports\PackageManagement;
+use Hanafalah\LaravelSupport\Supports\PackageManagement;
 
-class ModuleAgent extends PackageManagement{
- 
-}
+class ModuleAgent extends PackageManagement {}

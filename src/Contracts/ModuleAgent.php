@@ -1,9 +1,7 @@
 <?php
 
-namespace Gii\ModuleAgent\Contracts;
+namespace Hanafalah\ModuleAgent\Contracts;
 
-use Gii\ModuleOrganization\Contracts\ModuleOrganization;
+use Hanafalah\ModuleOrganization\Contracts\ModuleOrganization;
 
-interface ModuleAgent extends ModuleOrganization{
-
-}
+interface ModuleAgent extends ModuleOrganization {}
