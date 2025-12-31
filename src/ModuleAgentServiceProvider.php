@@ -2,10 +2,6 @@
 
 namespace Hanafalah\ModuleAgent;
 
-use Hanafalah\ModuleAgent\{
-    Models\Agent,
-    Schemas\Agent as SchemaAgent,
-};
 use Hanafalah\LaravelSupport\Providers\BaseServiceProvider;
 
 class ModuleAgentServiceProvider extends BaseServiceProvider
@@ -19,15 +15,7 @@ class ModuleAgentServiceProvider extends BaseServiceProvider
     {
         $this->registerMainClass(ModuleAgent::class)
             ->registerCommandService(Providers\CommandServiceProvider::class)
-            ->registers([
-                '*',
-                'Services'  => function () {
-                    $this->binds([
-                        Contracts\ModuleAgent::class  => Agent::class,
-                        Contracts\Agent::class        => SchemaAgent::class,
-                    ]);
-                },
-            ]);
+            ->registers(['*']);
     }
 
     protected function dir(): string

@@ -2,7 +2,7 @@
 
 namespace Hanafalah\ModuleAgent\Resources\Agent;
 
-use Hanafalah\ModuleOrganization\Resources\ViewOrganization;
+use Hanafalah\ModuleOrganization\Resources\Organization\ViewOrganization;
 
 class ViewAgent extends ViewOrganization
 {

@@ -2,9 +2,9 @@
 
 namespace Hanafalah\ModuleAgent\Resources\Agent;
 
-use Hanafalah\ModuleOrganization\Resources\ShowOrganization;
+use Hanafalah\ModuleOrganization\Resources\Organization\ShowOrganization;
 
-class ShowAgent extends ShowOrganization
+class ShowAgent extends ViewAgent
 {
   /**
    * Transform the resource into an array.
@@ -15,8 +15,8 @@ class ShowAgent extends ShowOrganization
   public function toArray(\Illuminate\Http\Request $request): array
   {
     $arr = [];
-    $arr = $this->mergeArray(parent::toArray($request), $arr);
-
+    $show = $this->resolveNow(new ShowOrganization($this));
+    $arr = $this->mergeArray(parent::toArray($request), $show, $arr);
     return $arr;
   }
 }
